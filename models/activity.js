@@ -1,4 +1,6 @@
-const activitySchema = new Schema({
+const mongoose = require('mongoose');
+
+const activitySchema = mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -11,6 +13,14 @@ const activitySchema = new Schema({
         type: String,
         required: true
     },
+    coords: {
+        type: Array,
+        required: true
+    },
+    category: {
+        type: String,
+        required: true
+    },
     prices: {
         type: String,
         required: false
@@ -20,3 +30,5 @@ const activitySchema = new Schema({
         required: false
     },
 });
+
+module.exports = mongoose.model('Activity', activitySchema);
