@@ -10,9 +10,14 @@ app.use((req, res, next) => {
     next();
 });
 
+// static files
+app.use(express.static(__dirname + '/public'));
+
 // importation des routes
+const baseRoutes = require('./routes/base');
 const activityRoutes = require('./routes/activity');
 
+app.use('/', baseRoutes);
 app.use('/api/activity', activityRoutes);
 
 module.exports = app;
