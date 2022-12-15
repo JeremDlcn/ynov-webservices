@@ -25,3 +25,9 @@ a {
     text-decoration: none;
     color: var(--main-font);
 }
+
+/* Map Style */
+#map {
+    width: 20rem;
+    height: 20rem;
+}
