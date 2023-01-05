@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="icon/png" href="" />
+    <link rel="stylesheet" href="/style/style.css">
+    <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+    <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' />
+    <title>WebServices</title>
+</head>
+
+<body>
+    <h1>Activités dans la catégorie</h1>
+    <ul id="list"></ul>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        fetch(`http://localhost:3000/api/activity/category/${urlParams.get('name')}`, {
+             method: 'GET'
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            const list = document.getElementById('list');
+            data.forEach(activity => {
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="/activity/${activity.name}">${activity.name}</a>`;
+                list.appendChild(li);
+            });
+        });
+    </script>
+</body>
+
+</html>

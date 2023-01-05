@@ -31,3 +31,37 @@ a {
     width: 20rem;
     height: 20rem;
 }
+
+/* Category Syle */
+#category {
+    display: grid;
+    flex-direction: row;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 10rem);
+    gap: 1rem;
+}
+
+.category {
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 1rem;
+    transition: .2s ease-in-out;
+}
+.category:hover {
+    background-color: rgb(219, 219, 219);
+}
+
+.category-image {
+    width: 5rem;
+    height: 5rem;
+}
+.category-title {
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin-top: 1rem;
+}

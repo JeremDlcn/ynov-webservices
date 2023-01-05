@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="icon/png" href="" />
+    <link rel="stylesheet" href="/style/style.css">
+    <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+    <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' />
+    <title>WebServices</title>
+</head>
+
+<body>
+    <h1>Ajouter une activité</h1>
+    <form action="/api/activity" method="post">
+        <input type="text" name="name" placeholder="Nom de l'activité">
+        <input type="text" name="description" placeholder="Description de l'activité">
+        <input type="text" name="schedule" placeholder="Horaires de l'activité">
+        <input type="text" name="coords" placeholder="Coordonnées de l'activité">
+        <input type="text" name="category" placeholder="Catégorie de l'activité">
+        <input type="text" name="prices" placeholder="Prix de l'activité">
+        <input type="text" name="icon" placeholder="Icone de l'activité">
+
+        <input type="submit" value="Ajouter une activité">
+    </form>
+
+</body>
+
+</html>

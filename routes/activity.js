@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+const logger = require('../middlewares/logger');
+
 const activityCtrl = require('../controllers/activity');
 
-router.get('/', [], activityCtrl.getAllActivities);
-router.get('/:id', [], activityCtrl.getOneActivity);
-router.post('/', [], activityCtrl.createActivity);
-router.put('/:id', [],activityCtrl.modifyActivity);
-router.delete('/:id',[], activityCtrl.deleteActivity);
+router.get('/', [logger], activityCtrl.getAllActivities);
+router.get('/category/:category', [logger], activityCtrl.getActivitiesByCategory);
+router.post('/', [logger], activityCtrl.createActivity);
+router.put('/:id', [logger],activityCtrl.modifyActivity);
+router.delete('/:id',[logger], activityCtrl.deleteActivity);
 
 module.exports = router;

@@ -20,6 +20,8 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
+
 // Database connection
 const dbID = process.env.DB_ID;
 const dbPW = process.env.DB_PW;
