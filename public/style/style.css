@@ -19,6 +19,7 @@ body {
     background-color: var(--bg-color);
     color: var(--main-font);
     font-family: sans-serif;
+    padding: 4rem;
 }
 
 a {
@@ -26,19 +27,33 @@ a {
     color: var(--main-font);
 }
 
+main {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
 /* Map Style */
 #map {
-    width: 20rem;
-    height: 20rem;
+    width: 40rem;
+    height: 40rem;
 }
 
 /* Category Syle */
 #category {
+    min-width: 40vw;
     display: grid;
     flex-direction: row;
     justify-content: center;
     grid-template-columns: repeat(auto-fit, 10rem);
+    grid-auto-rows: min-content;
     gap: 1rem;
+    margin-left: 4rem;
 }
 
 .category {
@@ -64,4 +79,24 @@ a {
     font-size: 0.95rem;
     font-weight: bold;
     margin-top: 1rem;
+}
+
+#list {
+    list-style-type: none;
+}
+
+.activity {
+    background-color: rgb(237, 237, 237);
+    padding: 1rem 2rem;
+}
+.activity > * {
+    line-height: 1.8rem;
+}
+
+.activity-tag {
+    margin-top: 1rem;
+    width: min-content;
+    padding: .5rem 1rem;
+    background-color: rgb(234, 133, 60);
+    border-radius: 2rem;
 }

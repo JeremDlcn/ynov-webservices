@@ -4,3 +4,11 @@ const map = new maplibregl.Map({
     center: [2.3522, 48.8566],
     zoom: 5
 });
+
+function addMarkers(markers, coords, name) {
+    markers.push(new maplibregl.Marker()
+    .setLngLat(coords)
+    .setPopup(new maplibregl.Popup({ offset: 25 }) // add popups
+      .setHTML(`<h3>${name}</h3>`))
+    .addTo(map))
+}

@@ -13,7 +13,11 @@
 
 <body>
     <h1>Activités dans la catégorie</h1>
-    <ul id="list"></ul>
+    <main>
+        <div id="map"></div>
+        <ul id="list"></ul>
+    </main>
+    <script src="/js/map.js"></script>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         fetch(`http://localhost:3000/api/activity/category/${urlParams.get('name')}`, {
@@ -25,8 +29,14 @@
             const list = document.getElementById('list');
             data.forEach(activity => {
                 const li = document.createElement('li');
-                li.innerHTML = `<a href="/activity/${activity.name}">${activity.name}</a>`;
+                li.className = 'activity';
+                li.innerHTML = `<h2>${activity.name}</h2>
+                <p>${activity.description}</p>
+                <p>⏲ ${activity.schedule}</p>
+                <div class="activity-tag">${activity.category}</div>
+                `;
                 list.appendChild(li);
+                addMarkers([], activity.coords, activity.name);
             });
         });
     </script>
