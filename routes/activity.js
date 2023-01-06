@@ -6,6 +6,7 @@ const logger = require('../middlewares/logger');
 const activityCtrl = require('../controllers/activity');
 
 router.get('/', [logger], activityCtrl.getAllActivities);
+router.get('/activity', [logger], activityCtrl.getOneActivity);
 router.get('/category/:category', [logger], activityCtrl.getActivitiesByCategory);
 router.post('/', [logger], activityCtrl.createActivity);
 router.put('/:id', [logger],activityCtrl.modifyActivity);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -8,23 +8,93 @@
     <link rel="stylesheet" href="/style/style.css">
     <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
     <link href='https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daisyui@1.16.2/dist/full.css" />
+    <style>
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+    </style>
     <title>WebServices</title>
 </head>
 
 <body>
     <h1>Ajouter une activité</h1>
+    <div class="form-control">
+        <div class="input-group">
+            <select name="method" id="method" class="select select-bordered">
+                <option value="post" selected>Créer une activité : POST</option>
+                <option value="put">Modifier une activité : PUT</option>
+            </select>
+        </div>
+    </div>
     <form action="/api/activity" method="post">
-        <input type="text" name="name" placeholder="Nom de l'activité">
-        <input type="text" name="description" placeholder="Description de l'activité">
-        <input type="text" name="schedule" placeholder="Horaires de l'activité">
-        <input type="text" name="coords" placeholder="Coordonnées de l'activité">
-        <input type="text" name="category" placeholder="Catégorie de l'activité">
-        <input type="text" name="prices" placeholder="Prix de l'activité">
-        <input type="text" name="icon" placeholder="Icone de l'activité">
-
-        <input type="submit" value="Ajouter une activité">
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">Nom de l'activité</span>
+            </label>
+            <input type="text" name="name" placeholder="Nom de l'activité" class="input input-bordered">
+        </div>
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">Description de l'activité</span>
+            </label>
+            <input type="text" name="description" placeholder="Description de l'activité" class="input input-bordered">
+        </div>
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">Horaires de l'activité</span>
+            </label>
+            <input type="text" name="schedule" placeholder="Horaires de l'activité" class="input input-bordered">
+        </div>
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">Coordonnées de l'activité</span>
+            </label>
+            <input type="text" name="coords" placeholder="Coordonnées de l'activité" class="input input-bordered">
+        </div>
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">Catégorie de l'activité</span>
+            </label>
+            <input type="text" name="category" placeholder="Catégorie de l'activité" class="input input-bordered">
+        </div>
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">Prix de l'activité</span>
+            </label>
+            <input type="text" name="prices" placeholder="Prix de l'activité" class="input input-bordered">
+        </div>
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">Icone de l'activité</span>
+            </label>
+            <input type="text" name="icon" placeholder="Icone de l'activité" class="input input-bordered">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Ajouter une activité">
     </form>
-
+    <script>
+        const method = document.getElementById('method');
+        const form = document.querySelector('form');
+        method.addEventListener('change', (e) => {
+            form.method = e.target.value;
+        });
+    </script>
+    <script>
+        const url = window.location.href;
+        if(url.includes('edit')) {
+            const id = url.substring(url.lastIndexOf('/') + 1);
+            console.log(id);
+    
+            fetch(`http://localhost:3000/api/activity/activity?id=${id}`)
+                .then(data => {console.log(data); return data.json()})
+                .then(data => console.log(data))
+                // .then(response => response.json())
+                // .then(data => {
+                //     console.log(data);
+                // });
+        }
+    </script>
 </body>
 
 </html>

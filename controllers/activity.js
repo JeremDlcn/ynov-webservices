@@ -6,6 +6,12 @@ exports.getAllActivities = (req, res, next) => {
         .catch(error => res.status(400).json({ error }));
 }
 
+exports.getOneActivity = (req, res, next) => {
+    Activity.findOne({ _id: req.params.id })
+        .then(activity => res.status(200).json(activity))
+        .catch(error => res.status(404).json({ error }));
+}
+
 exports.getOneActivityByCategory = (req, res, next) => {
     Activity.findOne({ category: req.params.category })
         .then(activity => res.status(200).json(activity))
