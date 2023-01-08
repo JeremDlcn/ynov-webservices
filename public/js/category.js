@@ -1,27 +1,12 @@
 const categoryData = [
     {
-        name: 'Paintball',
-        type: 'paintball',
-        image: 'https://picsum.photos/200/300'
-    },
-    {
         name: 'Kayak',
         type: 'kayak',
         image: 'https://picsum.photos/200/300'
     },
     {
         name: 'Escalade',
-        type: 'escalade',
-        image: 'https://picsum.photos/200/300'
-    },
-    {
-        name: 'VTT',
-        type: 'vtt',
-        image: 'https://picsum.photos/200/300'
-    },
-    {
-        name: 'Randonnée',
-        type: 'randonnee',
+        type: 'climbing',
         image: 'https://picsum.photos/200/300'
     },
     {
@@ -30,28 +15,8 @@ const categoryData = [
         image: 'https://picsum.photos/200/300'
     },
     {
-        name: 'Parapente',
-        type: 'parapente',
-        image: 'https://picsum.photos/200/300'
-    },
-    {
-        name: 'Ski',
-        type: 'ski',
-        image: 'https://picsum.photos/200/300'
-    },
-    {
         name: 'Plongée',
         type: 'plongee',
-        image: 'https://picsum.photos/200/300'
-    },
-    {
-        name: 'Voile',
-        type: 'voile',
-        image: 'https://picsum.photos/200/300'
-    },
-    {
-        name: 'Paddle',
-        type: 'paddle',
         image: 'https://picsum.photos/200/300'
     }
 ]

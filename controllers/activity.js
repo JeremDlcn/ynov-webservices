@@ -1,4 +1,5 @@
 const Activity = require('../models/Activity');
+const climbing = require('./climbing');
 
 exports.getAllActivities = (req, res, next) => {
     Activity.find()
@@ -18,10 +19,15 @@ exports.getOneActivityByCategory = (req, res, next) => {
         .catch(error => res.status(404).json({ error }));
 }
 
-exports.getActivitiesByCategory = (req, res, next) => {
-    Activity.find({ category: req.params.category })
-        .then(activity => res.status(200).json(activity))
-        .catch(error => res.status(404).json({ error }));
+exports.getActivitiesByCategory = async (req, res, next) => {
+    if (req.params.category === 'climbing') {
+        const response = await climbing.getClimbingDatas([43.28403200089498, 5.371308351623643]);
+        res.status(200).json(response);
+    } else {
+        Activity.find({ category: req.params.category })
+            .then(activity => res.status(200).json(activity))
+            .catch(error => res.status(404).json({ error }));
+    }
 }
 
 exports.createActivity = (req, res, next) => {
