@@ -1,7 +1,7 @@
 const categoryData = [
     {
-        name: 'Kayak',
-        type: 'kayak',
+        name: 'Randonnée',
+        type: 'hiking',
         image: 'https://picsum.photos/200/300'
     },
     {

@@ -1,5 +1,6 @@
 const Activity = require('../models/Activity');
 const climbing = require('./climbing');
+const hiking = require('./hiking');
 
 exports.getAllActivities = (req, res, next) => {
     Activity.find()
@@ -22,6 +23,9 @@ exports.getOneActivityByCategory = (req, res, next) => {
 exports.getActivitiesByCategory = async (req, res, next) => {
     if (req.params.category === 'climbing') {
         const response = await climbing.getClimbingDatas([43.28403200089498, 5.371308351623643]);
+        res.status(200).json(response);
+    } else if (req.params.category === 'hiking') {
+        const response = await hiking.getHikingDatas([43.28403200089498, 5.371308351623643]);
         res.status(200).json(response);
     } else {
         Activity.find({ category: req.params.category })
