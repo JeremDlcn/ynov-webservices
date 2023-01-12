@@ -12,11 +12,11 @@ exports.getHikingDatas = (coords) => {
         .then(data => {
             console.log(data);
             const filteredData = data.features.map((hike) => {
-                console.log(hike.geometry.coordinates[0]);
+                const coord = hike.geometry.coordinates[0];
+                const transformCoords = coord.map((coord) => coord / 100000)
                 return {
                     name: hike.properties.name,
-                    // coords: hike.geometry.coordinates,
-                    coords: [43.28403200089498, 5.371308351623643],
+                    coords: transformCoords.reverse(),
                     code_country: 'fr',
                     category: 'hiking',
                     schedule: 'En Journée',
