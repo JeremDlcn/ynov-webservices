@@ -20,27 +20,27 @@
     <script src="/js/map.js"></script>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        fetch(`http://localhost:3000/api/activity/category/${urlParams.get('name')}`, {
-             method: 'GET'
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            const list = document.getElementById('list');
-            data.forEach(activity => {
-                const li = document.createElement('li');
-                li.className = 'activity';
-                li.innerHTML = `<a href="/edit/${activity._id}">
+        fetch(`https://${process.env.URL}/api/activity/category/${urlParams.get('name')}`, {
+                method: 'GET'
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                const list = document.getElementById('list');
+                data.forEach(activity => {
+                    const li = document.createElement('li');
+                    li.className = 'activity';
+                    li.innerHTML = `<a href="/edit/${activity._id}">
                 <h2>${activity.name}</h2>
                 <p>${activity.description}</p>
                 <p>⏲ ${activity.schedule}</p>
                 <div class="activity-tag">${activity.category}</div>
                 </a>
                 `;
-                list.appendChild(li);
-                addMarkers([], activity.coords, activity.name);
+                    list.appendChild(li);
+                    addMarkers([], activity.coords, activity.name);
+                });
             });
-        });
     </script>
 </body>
 
