@@ -1,4 +1,4 @@
-const Activity = require('../models/Activitys');
+const Activity = require('../models/Activity');
 const climbing = require('./climbing');
 const hiking = require('./hiking');
 
