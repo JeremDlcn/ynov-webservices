@@ -1,6 +1,7 @@
 :root {
     --main-font: #000;
     --bg-color: #FFF;
+    --primary-color: rgb(60, 82, 247);
 }
 
 * {
@@ -47,9 +48,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(60, 82, 247);
+    background-color: var(--primary-color);
     margin: -4rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
 header div {
@@ -65,8 +66,9 @@ header img {
 /* Map Style */
 
 #map {
-    width: 40rem;
-    height: 40rem;
+    width: 30rem;
+    height: 30rem;
+    border-radius: 1rem;
 }
 
 
@@ -130,11 +132,14 @@ header img {
 
 #list {
     list-style-type: none;
+    margin-top: -1rem;
 }
 
 .activity {
     background-color: rgb(237, 237, 237);
     padding: 1rem 2rem;
+    border-radius: 1rem;
+    margin: 1rem;
 }
 
 .activity>* {
@@ -145,6 +150,6 @@ header img {
     margin-top: 1rem;
     width: min-content;
     padding: .5rem 1rem;
-    background-color: rgb(234, 133, 60);
+    background-color: var(--primary-color);
     border-radius: 2rem;
 }
