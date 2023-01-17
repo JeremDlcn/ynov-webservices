@@ -9,7 +9,8 @@
     padding: 0;
 }
 
-html,body {
+html,
+body {
     scroll-behavior: smooth;
     width: 100%;
     height: 100%;
@@ -38,47 +39,72 @@ h1 {
     font-weight: bold;
     margin-bottom: 1rem;
 }
+
+
 /* Map Style */
+
 #map {
     width: 40rem;
     height: 40rem;
 }
 
+
 /* Category Syle */
+
 #category {
-    min-width: 40vw;
+    min-width: 30vw;
     display: grid;
     flex-direction: row;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, 10rem);
+    grid-template-columns: repeat(auto-fit, 12rem);
     grid-auto-rows: min-content;
     gap: 1rem;
     margin-left: 4rem;
 }
 
 .category {
-    width: 10rem;
-    height: 10rem;
+    width: 12rem;
+    height: 12rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid #000;
     border-radius: 1rem;
     transition: .2s ease-in-out;
+    position: relative;
+    overflow: hidden;
 }
-.category:hover {
-    background-color: rgb(219, 219, 219);
+
+.category:hover .category-image {
+    filter: brightness(0.7);
+    transform: scale(1.2);
+}
+
+.category a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 .category-image {
-    width: 5rem;
-    height: 5rem;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    bottom: 0;
+    filter: brightness(0.5);
+    transition: .2s ease-in-out;
 }
+
 .category-title {
     font-size: 0.95rem;
     font-weight: bold;
     margin-top: 1rem;
+    position: relative;
+    color: white;
 }
 
 #list {
@@ -89,7 +115,8 @@ h1 {
     background-color: rgb(237, 237, 237);
     padding: 1rem 2rem;
 }
-.activity > * {
+
+.activity>* {
     line-height: 1.8rem;
 }
 
