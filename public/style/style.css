@@ -41,6 +41,27 @@ h1 {
 }
 
 
+/* Header Style */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(60, 82, 247);
+    margin: -4rem;
+    margin-bottom: 2rem;
+}
+
+header div {
+    margin: 2rem 4rem;
+}
+
+header img {
+    height: 2rem;
+    width: auto;
+}
+
+
 /* Map Style */
 
 #map {
@@ -49,7 +70,7 @@ h1 {
 }
 
 
-/* Category Syle */
+/* Category Style */
 
 #category {
     min-width: 30vw;

@@ -20,7 +20,6 @@
     <script src="/js/map.js"></script>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        //get the part of the url localhot:3000 from https://localhost:3000/api/activity/category/running4
         const rootURL = window.location.href.split('/')[2];
         fetch(`https://${rootURL}/api/activity/category/${urlParams.get('name')}`, {
                 method: 'GET'
