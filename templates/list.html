@@ -29,7 +29,14 @@
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const rootURL = window.location.href.split('/')[2];
-        fetch(`https://${rootURL}/api/activity/category/${urlParams.get('name')}`, {
+        let lat = '';
+        let lng = '';
+        if (urlParams.get('lat') && urlParams.get('lng')) {
+            lat = '?lat=' + urlParams.get('lat');
+            lng = '&lng=' + urlParams.get('lng');
+            map.setCenter([urlParams.get('lng'), urlParams.get('lat')]);
+        }
+        fetch(`http://${rootURL}/api/activity/category/${urlParams.get('name')}${lat}${lng}`, {
                 method: 'GET'
             })
             .then(response => response.json())
@@ -51,6 +58,8 @@
                 });
             });
     </script>
+    <script src="/js/climbing.js"></script>
+
 </body>
 
 </html>

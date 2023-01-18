@@ -3,7 +3,6 @@ const fetch = require('node-fetch');
 
 
 exports.getClimbingDatas = (coords) => {
-    // [43.28403200089498, 5.371308351623643]
     return new Promise((resolve, reject) => {
         fetch(`https://api.oblyk.org/api/v1/public/crags/crags_around?latitude=${coords[0]}&longitude=${coords[1]}&distance=30`, {
                 method: 'GET',
@@ -13,7 +12,6 @@ exports.getClimbingDatas = (coords) => {
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 const filteredData = data.map((crag) => {
                     return {
                         name: crag.name,
