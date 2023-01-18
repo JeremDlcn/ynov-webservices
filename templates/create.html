@@ -94,7 +94,7 @@
             const id = url.substring(url.lastIndexOf('/') + 1);
             console.log(id);
             const rootURL = window.location.href.split('/')[2];
-            fetch(`https://${rootURL}/api/activity/activity?id=${id}`)
+            fetch(`http://${rootURL}/api/activity/activity?id=${id}`)
                 .then(data => {
                     console.log(data);
                     return data.json()

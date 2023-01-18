@@ -41,7 +41,6 @@
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 const list = document.getElementById('list');
                 data.forEach(activity => {
                     const li = document.createElement('li');
@@ -54,6 +53,7 @@
                 </a>
                 `;
                     list.appendChild(li);
+                    if (activity.coords.length < 2) activity.coords = activity.coords[0].split(',')
                     addMarkers([], activity.coords, activity.name);
                 });
             });

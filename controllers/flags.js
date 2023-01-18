@@ -3,33 +3,32 @@
 var http = require('follow-redirects').http;
 
 var options = {
-  'method': 'POST',
-  'hostname': 'webservices.oorsprong.org',
-  'path': '/websamples.countryinfo/CountryInfoService.wso',
-  'headers': {
-    'Content-Type': 'text/xml; charset=utf-8'
-  },
-  'maxRedirects': 20
+    'method': 'POST',
+    'hostname': 'webservices.oorsprong.org',
+    'path': '/websamples.countryinfo/CountryInfoService.wso',
+    'headers': {
+        'Content-Type': 'text/xml; charset=utf-8'
+    },
+    'maxRedirects': 20
 };
 
-var req = http.request(options, function (res) {
-  var chunks = [];
+var req = http.request(options, function(res) {
+    var chunks = [];
 
-  res.on("data", function (chunk) {
-    chunks.push(chunk);
-  });
+    res.on("data", function(chunk) {
+        chunks.push(chunk);
+    });
 
-  res.on("end", function (chunk) {
-    var body = Buffer.concat(chunks);
-    console.log(body.toString());
-  });
+    res.on("end", function(chunk) {
+        var body = Buffer.concat(chunks);
+    });
 
-  res.on("error", function (error) {
-    console.error(error);
-  });
+    res.on("error", function(error) {
+        console.error(error);
+    });
 });
 
-var postData =  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <ListOfCountryNamesByName xmlns=\"http://www.oorsprong.org/websamples.countryinfo\">\n    </ListOfCountryNamesByName>\n  </soap12:Body>\n</soap12:Envelope>";
+var postData = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<soap12:Envelope xmlns:soap12=\"http://www.w3.org/2003/05/soap-envelope\">\n  <soap12:Body>\n    <ListOfCountryNamesByName xmlns=\"http://www.oorsprong.org/websamples.countryinfo\">\n    </ListOfCountryNamesByName>\n  </soap12:Body>\n</soap12:Envelope>";
 
 req.write(postData);
 
@@ -59,4 +58,3 @@ req.end();
 //     console.error(error);
 // }
 // );
-
