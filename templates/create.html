@@ -95,15 +95,18 @@
             console.log(id);
             const rootURL = window.location.href.split('/')[2];
             fetch(`http://${rootURL}/api/activity/activity?id=${id}`)
+                .then(response => response.json())
                 .then(data => {
                     console.log(data);
-                    return data.json()
-                })
-                .then(data => console.log(data))
-                // .then(response => response.json())
-                // .then(data => {
-                //     console.log(data);
-                // });
+                    document.querySelector('input[name="name"]').value = data.name === undefined ? '' : data.name;
+                    document.querySelector('input[name="description"]').value = data.description === undefined ? '' : data.description;
+                    document.querySelector('input[name="schedule"]').value = data.schedule === undefined ? '' : data.schedule;
+                    document.querySelector('input[name="coords"]').value = data.coords === undefined ? '' : data.coords;
+                    document.querySelector('input[name="category"]').value = data.category === undefined ? '' : data.category;
+                    document.querySelector('input[name="prices"]').value = data.prices === undefined ? '' : data.prices;
+                    document.querySelector('input[name="icon"]').value = data.icon === undefined ? '' : data.icon;
+
+                });
         }
     </script>
 </body>

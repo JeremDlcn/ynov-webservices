@@ -9,7 +9,7 @@ exports.getAllActivities = (req, res, next) => {
 }
 
 exports.getOneActivity = (req, res, next) => {
-    Activity.findOne({ _id: req.params.id })
+    Activity.findOne({ _id: req.query.id })
         .then(activity => res.status(200).json(activity))
         .catch(error => res.status(404).json({ error }));
 }
