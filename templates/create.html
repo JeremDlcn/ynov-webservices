@@ -94,7 +94,7 @@
             document.querySelector('select[name="method"]').value = 'put';
             const id = url.substring(url.lastIndexOf('/') + 1);
             const rootURL = window.location.href.split('/')[2];
-            fetch(`http://${rootURL}/api/activity/activity?id=${id}`)
+            fetch(`https://${rootURL}/api/activity/activity?id=${id}`)
                 .then(response => response.json())
                 .then(data => {
                     document.querySelector('input[name="name"]').value = data.name === undefined ? '' : data.name;

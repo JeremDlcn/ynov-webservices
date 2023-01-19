@@ -36,7 +36,7 @@
             lng = '&lng=' + urlParams.get('lng');
             map.setCenter([urlParams.get('lng'), urlParams.get('lat')]);
         }
-        fetch(`http://${rootURL}/api/activity/category/${urlParams.get('name')}${lat}${lng}`, {
+        fetch(`https://${rootURL}/api/activity/category/${urlParams.get('name')}${lat}${lng}`, {
                 method: 'GET'
             })
             .then(response => response.json())

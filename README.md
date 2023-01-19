@@ -32,3 +32,20 @@ Sécurisation du WS (cacher les informations sensibles, chiffrage en base de don
 Pas de duplication de code
 Respecter au mieux les 11 commandements des WS
 Commenter son code
+
+## Installation
+
+```bash	
+npm install
+```
+
+## Lancement sur un serveur
+
+```bash
+npm start
+```
+
+## Fonctionnement en local
+
+Si l'on souhaite tester le projet en local, il faut modifier deux lignes de code dans les fichiers create.html à la ligne 97 et list.html à la ligne 39 il faut passer le https en http afin de faire fonctionner le projet en local.
+
