@@ -45,16 +45,37 @@
                 data.forEach(activity => {
                     const li = document.createElement('li');
                     li.className = 'activity';
-                    li.innerHTML = `<a href="/edit/${activity._id}">
-                <h2>${activity.name}</h2>
-                <p>${activity.description}</p>
-                <p>⏲ ${activity.schedule}</p>
-                <div class="activity-tag">${activity.category}</div>
-                </a>
-                `;
-                    list.appendChild(li);
                     if (activity.coords.length < 2) activity.coords = activity.coords[0].split(',')
                     addMarkers([], activity.coords, activity.name);
+                    if (activity._id === undefined) {
+                        li.innerHTML = `<div class="apply" data-coords="${activity.coords}">
+                                <h2>${activity.name}</h2>
+                                <p>${activity.description}</p>
+                                <p>⏲ ${activity.schedule}</p>
+                                <div class="activity-tag">${activity.category}</div>
+                            </div>
+                                `;
+                    } else {
+                        li.innerHTML = `<div class="apply" data-coords="${activity.coords}">
+                                <h2>${activity.name}</h2>
+                                <p>${activity.description}</p>
+                                <p>⏲ ${activity.schedule}</p>
+                                <div class="activity-tag">${activity.category}</div>
+                                <a href="/edit/${activity._id}" class="edit">Editer</a>
+                            </div>
+                                `;
+                    }
+                    li.className += ' climbing';
+                    list.appendChild(li);
+
+                });
+                const applies = document.querySelectorAll('.apply');
+                applies.forEach(apply => {
+                    apply.addEventListener('click', () => {
+                        apply.coords = apply.getAttribute('data-coords').split(',');
+                        map.setCenter([apply.coords[0], apply.coords[1]]);
+                        map.setZoom(12);
+                    });
                 });
             });
     </script>

@@ -41,6 +41,17 @@ h1 {
     margin-bottom: 1rem;
 }
 
+.apply {
+    position: relative;
+}
+
+.edit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-decoration: underline;
+}
+
 
 /* Header Style */
 
